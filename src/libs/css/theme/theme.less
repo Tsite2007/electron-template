@@ -1,0 +1,45 @@
+//系统主题变量
+@fontColor:#444;
+@borderColor:#e5e5e5;
+
+@themeColor: #1a8cfe; //第一主题色
+@themeFontColor: #ffffff; //主题字体色
+@themeHoverColor: shade(@themeColor, 15%); //主题焦点色
+
+@baseThemeColor: #1a8cfe; //第二主题色
+@baseThemeFontColor: #ffffff; //第二主题字体色
+@baseThemeHoverColor: shade(@baseThemeColor, 15%); //第二主题焦点色
+
+@defaultThemeColor: #f7f7f7; //默认主题色
+@defaultThemeFontColor: @fontColor;
+@defaultThemeHoverColor: #dddee1;
+
+@infoThemeColor:#2db7f5;//信息主题色
+@infoThemeFontColor:#ffffff;
+@infoThemeHoverColor:#2db7f5;
+
+@successThemeColor:#19be6b;//成功主题色
+@successThemeFontColor:#ffffff;
+@successThemeHoverColor:#19be6b;
+
+@warningThemeColor:#f90;//警告主题色
+@warningThemeFontColor:#ffffff;
+@warningThemeHoverColor:#f90;
+
+@errorThemeColor:#ed3f14;//错误主题色
+@errorThemeFontColor:#ffffff;
+@errorThemeHoverColor:#ed3f14;
+
+//边框
+.baseBorder() {
+    border: 1px @borderColor solid;
+}
+.baseBorder(@direction, @borderWidth:1px, @color:@borderColor) {
+    border@{direction}: @borderWidth @color solid;
+}
+.baseBorderHover() {
+    border: 1px @themeHoverColor solid;
+}
+.baseBorderHover(@direction, @borderWidth:1px, @color:@themeHoverColor) {
+    .baseBorder(@direction,@borderWidth,@color);
+}

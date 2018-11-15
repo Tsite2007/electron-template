@@ -1,0 +1,197 @@
+@import url( './theme/theme.less');
+@import './animate.css';
+@import './font-awesome.min.css';
+//http://www.bootcss.com/p/font-awesome/#icons-new
+*{box-sizing:border-box;outline:none; transition:background-color ease 200ms}
+html,body{color:#444;font-size:14px!important;font-family: "Microsoft YaHei","Apple LiGothic Medium","NSimSun","FontAwesome","Arial" !important;}
+input,textarea,button{ outline:none;font-size:14px;font-family: "Microsoft YaHei","Apple LiGothic Medium","NSimSun","FontAwesome","Arial" !important;}
+html{ position:relative; min-height: 100%;height: 100%;}
+body{ position: absolute;left: 0;top: 0;width: 100%;min-height: 100%;}
+a, address, b, big, blockquote, body, center, cite, code, dd, del, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, label, legend,li, ol, p, pre, small, span, strong, u, ul, var, button {margin:0; padding:0; list-style:none;}
+form, article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary ,ul ,li  {display: block;}
+/*选中文字颜色*/
+::selection{background:@baseThemeColor;color:#FFF;}
+::-moz-selection{background:@baseThemeColor;color:#FFF;}
+::-webkit-selection{background:@baseThemeColor;color:#FFF;}
+::-ms-selection{background:@baseThemeColor;color:#FFF;}
+::-o-selection{background:@baseThemeColor;color:#FFF;}
+table{table-layout: fixed; word-break: break-all; word-wrap:break-word;}
+.hide {display: none;}
+.clearfix{zoom:1; clear: both;}
+.clearfix:after {clear: both;content: " ";display: block;height: 0;overflow: hidden;line-height: 0;font-size: 0;}
+.fl{float:left;}
+.fr{float:right;}
+/*滚动条样式*/
+div::-webkit-scrollbar-track{border-radius: 0px;background-color: rgba(0,0,0,0.05);}
+div::-webkit-scrollbar{width: 10px; height: 10px ;background-color:rgba(0,0,0,0.05);}
+div::-webkit-scrollbar-thumb{border-radius: 0px;background-color: rgba(0,0,0,0.09);}
+table tr th{white-space: nowrap;}
+
+//框架body区域
+.transition{
+    transition: all 0.5s ease;
+}
+.noData{
+	background-size: 80% 70%;
+	padding-top: 184px;
+	line-height: 40px;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: top center;
+	min-width: 300px;
+}
+//loadingView
+@-webkit-keyframes foldCubeAngle {
+    0%,10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+    25%,75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+    100%,90% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
+}
+@keyframes foldCubeAngle {
+    0%,10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+    25%,75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+    100%,90% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
+}
+.loadingView {
+    // position: fixed;
+    left: 0;
+    // top: 30px;
+    width: 100%;
+    height: 100%;
+    z-index: 1999;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    .loadingViewFrame {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -50px 0 0 -20px;
+        width: 40px;
+        height: 40px;
+        -webkit-transform: rotateZ(45deg);
+        transform: rotateZ(45deg);
+        .loadingBox {
+            float: left;
+            width: 50%;
+            height: 50%;
+            position: relative;
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        .loadingBox:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: @baseThemeColor;
+            -webkit-animation: foldCubeAngle 2.4s infinite linear both;
+            animation: foldCubeAngle 2.4s infinite linear both;
+            -webkit-transform-origin: 100% 100%;
+            -ms-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+        .loadingBox2 {
+            -webkit-transform: scale(1.1) rotateZ(90deg);
+            transform: scale(1.1) rotateZ(90deg);
+        }
+        .loadingBox3 {
+            -webkit-transform: scale(1.1) rotateZ(180deg);
+            transform: scale(1.1) rotateZ(180deg);
+        }
+        .loadingBox4 {
+            -webkit-transform: scale(1.1) rotateZ(270deg);
+            transform: scale(1.1) rotateZ(270deg);
+        }
+        .loadingBox2:before {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+        .loadingBox3:before {
+            -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+        }
+        .loadingBox4:before {
+            -webkit-animation-delay: 0.9s;
+            animation-delay: 0.9s;
+        }
+    }
+}
+
+.screenAnimate {
+    transition: all 0.5s ease;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+/*========右进左出===右进右出========*/
+.fold-rightIn-leftOut-enter-active {
+    transform: translate3d(100%, 0, 0);
+}
+.fold-rightIn-leftOut-enter-to,
+.fold-rightIn-leftOut-leave-active {
+    transform: translate3d(0%, 0, 0);
+}
+.fold-rightIn-leftOut-leave-to {
+    transform: translate3d(-100%, 0, 0);
+}
+
+.fold-rightIn-rightOut-enter-active,
+ {
+    transform: translate3d(100%, 0, 0);
+}
+.fold-rightIn-rightOut-leave-active,
+.fold-rightIn-rightOut-enter-to{
+    transform: translate3d(0%, 0, 0);
+}
+.fold-rightIn-rightOut-leave-to{
+    transform: translate3d(100%, 0, 0);
+}
+/*========左进右出===左进左出========*/
+.fold-leftIn-rightOut-enter-active {
+    transform: translate3d(-100%, 0, 0);
+}
+.fold-leftIn-rightOut-enter-to,
+.fold-leftIn-rightOut-leave-active {
+    transform: translate3d(0%, 0, 0);
+}
+.fold-leftIn-rightOut-leave-to {
+    transform: translate3d(100%, 0, 0);
+}
+
+.fold-leftIn-leftOut-enter-active{
+    transform: translate3d(-100%, 0, 0);
+}
+.fold-leftIn-leftOut-enter-to,
+.fold-leftIn-leftOut-leave-active {
+    transform: translate3d(0%, 0, 0);
+}
+.fold-leftIn-leftOut-leave-to{
+    transform: translate3d(-100%, 0, 0);
+}
